@@ -17,7 +17,8 @@ class MyApp extends StatelessWidget {
         fontFamily: 'Montserrat',
         colorScheme: ColorScheme.fromSeed(
           seedColor: Colors.deepPurple,
-          primary: Color(0xff01426A)
+          primary: Color(0xff01426A),
+          secondary: Color(0xff7C7C7C)
         ),
       ),
       home: const HomeScreen(),

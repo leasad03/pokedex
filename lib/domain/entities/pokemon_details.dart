@@ -27,16 +27,35 @@ class PokemonDetails {
 
     return PokemonDetails(
       name: data['name'],
-      imageUrl: data['sprites']['front_default'],
+      imageUrl: data['sprites']['other']['home']['front_default'],
       types: List<String>.from(data['types'].map((type) => type['type']['name'])),
       height: data['height'] / 10.0,
       weight: data['weight'] / 10.0,
       description: description,
       stats: (data['stats'] as List)
           .map((stat) => Stat(
-          statName: stat['stat']['name'],
+          statName: _formatStatName(stat['stat']['name']),
           value: stat['base_stat']))
           .toList(),
     );
+  }
+
+  static String _formatStatName(String name) {
+    switch (name) {
+      case 'hp':
+        return 'HP';
+      case 'attack':
+        return 'ATK';
+      case 'defense':
+        return 'DEF';
+      case 'special-attack':
+        return 'SP. ATK';
+      case 'special-defense':
+        return 'SP. DEF';
+      case 'speed':
+        return 'SPD';
+      default:
+        return name.toUpperCase();
+    }
   }
 }

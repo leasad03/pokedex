@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:pokedex/domain/utils/extensions/StringExtension.dart';
 import '../domain/entities/pokemon.dart';
 
 class PokemonDetailScreen extends StatelessWidget {
@@ -9,7 +10,15 @@ class PokemonDetailScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: Text(pokemon.name)),
+      appBar: AppBar(
+        title: Text(pokemon.name.capitalize(), style: TextStyle(color: Theme.of(context).colorScheme.primary),),
+        actions: [
+          Padding(
+            padding: EdgeInsets.only(right: 20.0),
+            child: Text('#${pokemon.id.toString().padLeft(3, '0')}', style: const TextStyle(color: Colors.grey, fontSize: 20)),
+          ),
+        ],
+      ),
       body: Center(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,

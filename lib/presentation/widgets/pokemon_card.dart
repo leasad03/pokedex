@@ -20,13 +20,17 @@ class PokemonCard extends StatelessWidget {
             Positioned(
               top: 8,
               right: 8,
-              child: Text('#${pokemon.id}', style: const TextStyle(color: Colors.grey, fontSize: 14)),
+              child: Text('#${pokemon.id.toString().padLeft(3, '0')}', style: const TextStyle(color: Colors.grey, fontSize: 14)),
             ),
             Column(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 Image.network(pokemon.imageUrl, height: 100, width: 100, fit: BoxFit.cover),
-                Text(pokemon.name.capitalize(), style: const TextStyle(fontSize: 20, fontWeight: FontWeight.bold)),
+                Text(pokemon.name.capitalize(), style: TextStyle(
+                  color: Theme.of(context).colorScheme.primary,
+                  fontSize: 20,
+                  fontWeight: FontWeight.bold
+                )),
               ],
             ),
           ],

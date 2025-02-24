@@ -15,7 +15,10 @@ class MyApp extends StatelessWidget {
       title: 'Pokédex',
       theme: ThemeData(
         fontFamily: 'Montserrat',
-        colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
+        colorScheme: ColorScheme.fromSeed(
+          seedColor: Colors.deepPurple,
+          primary: Color(0xff01426A)
+        ),
       ),
       home: const HomeScreen(),
     );
